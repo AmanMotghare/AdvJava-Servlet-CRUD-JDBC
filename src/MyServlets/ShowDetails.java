@@ -24,7 +24,7 @@ public class ShowDetails extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		
-		
+		int num=1;
 		PrintWriter out = response.getWriter();
 		response.setContentType("text/html");
 
@@ -47,7 +47,8 @@ public class ShowDetails extends HttpServlet {
 		out.print("<table class='table table-striped'>");
 		out.print("<thead>");
 		out.print("<tr>");
-		out.print("<th scope='col'>#</th>");
+		out.print("<th scope='col'>SR. NO.</th>");
+		out.print("<th scope='col'>ID</th>");
 		out.print("<th scope='col'>NAME</th>");
 		out.print("<th scope='col'>EMAIL</th>");
 		out.print("<th scope='col'>CITY</th>");
@@ -62,15 +63,17 @@ public class ShowDetails extends HttpServlet {
 			
 			
 			out.print("<tr>");
-			out.print(" <th scope='row'>"+pojo.getId()+"</th>");
+			out.print(" <th scope='row'>"+ num +" . "+"</th>");
+			out.print(" <td>"+pojo.getId()+"</td>");
 			out.print(" <td>"+pojo.getName()+"</td>");
 			out.print(" <td>"+pojo.getEmail()+"</td>");
 			out.print(" <td>"+pojo.getCity()+"</td>");
 			out.print(" <td>"+pojo.getContact()+"</td>");
 			out.print(" <td>"+pojo.getPassword()+"</td>");
-			out.print(" <td><a class='btn btn-info' href=edit >Edit</a>&nbsp<a class='btn btn-danger' href=delete?id="+pojo.getId()+">Delete</a></td>");
-//			out.print(" <td></td>");
+			out.print(" <td><a class='btn btn-info' href=update?id="+pojo.getId()+">Edit</a>&nbsp&nbsp"
+					+ "<a class='btn btn-danger' href=delete?id="+pojo.getId()+">Delete</a></td>");
 			out.print("</tr>");
+			num++;
 			
 		}
 		out.print("</tbody>");
